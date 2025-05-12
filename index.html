@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afrobeauty Kenya | Trendy African Fashion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="bg-yellow-600 text-white text-center py-2 px-4 text-sm">
+        <p>🔥 Free shipping on orders over Ksh 5,000! | 🇰🇪 Made in Kenya, For Kenya</p>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <img class="h-8 w-auto" src="https://via.placeholder.com/150x50?text=AfroChic" alt="AfroChic Kenya">
+                        <span class="ml-2 text-xl font-bold text-gray-800 hidden md:block">AfroChic Kenya</span>
+                    </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#" class="text-gray-900 hover:text-yellow-600 px-3 py-2 text-sm font-medium">Home</a>                   
+                    <a href="about.html" class="text-gray-900 hover:text-yellow-600 px-3 py-2 text-sm font-medium">About</a>
+
+                </div>
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="relative">
+                            <button id="search-btn" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none">
+                                <span class="sr-only">Search</span>
+                                <i class="fas fa-search h-6 w-6"></i>
+                            </button>
+                            <div id="search-dropdown" class="hidden absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50">
+                                <input type="text" placeholder="Search for products..." class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-4 flex-shrink-0 flex items-center">
+                        <button id="cart-btn" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none relative">
+                            <span class="sr-only">Cart</span>
+                            <i class="fas fa-shopping-cart h-6 w-6"></i>
+                            <span id="cart-count" class="absolute -top-1 -right-1 bg-yellow-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        </button>
+                    </div>
+                    <div class="ml-4 flex-shrink-0 flex items-center">
+                        <button class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <span class="sr-only">Account</span>
+                            <i class="fas fa-user h-6 w-6"></i>
+                        </button>
+                    </div>
+                    <div class="ml-4 flex items-center md:hidden">
+                        <button id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                            <span class="sr-only">Open main menu</span>
+                            <i class="fas fa-bars h-6 w-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Home</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Women</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Men</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Accessories</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">About</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <div class="flex flex-col h-full">
+            <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+                <div class="flex items-start justify-between">
+                    <h2 class="text-lg font-medium text-gray-900">Shopping cart</h2>
+                    <button id="close-cart" class="ml-3 text-gray-400 hover:text-gray-500">
+                        <i class="fas fa-times h-6 w-6"></i>
+                    </button>
+                </div>
+                
+                <div class="mt-8">
+                    <div class="flow-root">
+                        <ul id="cart-items" class="-my-6 divide-y divide-gray-200">
+                            <!-- Cart items will be added here dynamically -->
+                            <li class="py-6 flex">
+                                <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
+                                    <img src="https://via.placeholder.com/150" alt="Product image" class="w-full h-full object-center object-cover">
+                                </div>
+                                <div class="ml-4 flex-1 flex flex-col">
+                                    <div>
+                                        <div class="flex justify-between text-base font-medium text-gray-900">
+                                            <h3>Product Name</h3>
+                                            <p class="ml-4">Ksh 2,500</p>
+                                        </div>
+                                        <p class="mt-1 text-sm text-gray-500">Color: Black</p>
+                                        <p class="mt-1 text-sm text-gray-500">Size: M</p>
+                                    </div>
+                                    <div class="flex-1 flex items-end justify-between text-sm">
+                                        <div class="flex items-center border border-gray-300 rounded-md">
+                                            <button class="px-2 py-1 text-gray-600">-</button>
+                                            <span class="px-2">1</span>
+                                            <button class="px-2 py-1 text-gray-600">+</button>
+                                        </div>
+                                        <button class="font-medium text-yellow-600 hover:text-yellow-500">Remove</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
+                <div class="flex justify-between text-base font-medium text-gray-900">
+                    <p>Subtotal</p>
+                    <p id="cart-total">Ksh 0</p>
+                </div>
+                <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                <div class="mt-6">
+                    <a href="#" class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-yellow-600 hover:bg-yellow-700">Checkout</a>
+                </div>
+                <div class="mt-6 flex justify-center text-sm text-center text-gray-500">
+                    <p>
+                        or <button id="continue-shopping" class="text-yellow-600 font-medium hover:text-yellow-500">Continue Shopping</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <div class="hero-bg relative">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Elevate Your Style with AfroChic
+            </h1>
+            <p class="mt-6 max-w-lg mx-auto text-xl text-gray-100">
+                Discover the latest trends in Kenyan fashion. Handcrafted with love, designed for you.
+            </p>
+            <div class="mt-10 flex justify-center space-x-4">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-yellow-700 bg-white hover:bg-gray-50">
+                    Shop Women
+                </a>
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-yellow-600 hover:bg-yellow-700">
+                    Shop Men
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Featured Categories -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Women's Fashion" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-40 transition-all duration-300"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <h3 class="text-white text-xl font-bold">Women</h3>
+                    </div>
+                </a>
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Men's Fashion" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-40 transition-all duration-300"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <h3 class="text-white text-xl font-bold">Men</h3>
+                    </div>
+                </a>
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1875&q=80" alt="Accessories" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-40 transition-all duration- useful300"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <h3 class="text-white text-xl font-bold">Accessories</h3>
+                    </div>
+                </a>
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://images.unsplash.com/photo-1595341595379-cf0eda494a40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="New Arrivals" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-40 transition-all duration-300"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <h3 class="text-white text-xl font-bold">New Arrivals</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Trending Products -->
+    <div class="bg-gray-50 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900">Trending Now</h2>
+                <a href="#" class="text-yellow-600 hover:text-yellow-700 font-medium">View all</a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb0c9f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80" alt="African Print Dress" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2">
+                            <button class="p-2 rounded-full bg-white shadow-md text-gray-700 hover:text-yellow-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-xs font-medium text-white">New Arrival</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900 mb-1">Kitenge Maxi Dress</h3>
+                        <p class="text-sm text-gray-500 mb-2">African Print</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">Ksh 3,500</span>
+                            <button class="add-to-cart bg-yellow-600 text-white px-3 py-1 rounded-md text-sm hover:bg-yellow-700 transition-colors" data-id="1" data-name="Kitenge Maxi Dress" data-price="3500" data-image="https://images.unsplash.com/photo-1591047139829-d91aecb0c9f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="African Print Shirt" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2">
+                            <button class="p-2 rounded-full bg-white shadow-md text-gray-700 hover:text-yellow-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900 mb-1">Kaftan Shirt</h3>
+                        <p class="text-sm text-gray-500 mb-2">Men's Fashion</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">Ksh 2,800</span>
+                            <button class="add-to-cart bg-yellow-600 text-white px-3 py-1 rounded-md text-sm hover:bg-yellow-700 transition-colors" data-id="2" data-name="Kaftan Shirt" data-price="2800" data-image="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1875&q=80" alt="Beaded Necklace" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2">
+                            <button class="p-2 rounded-full bg-white shadow-md text-gray-700 hover:text-yellow-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-xs font-medium text-white">Best Seller</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900 mb-1">Maasai Beaded Necklace</h3>
+                        <p class="text-sm text-gray-500 mb-2">Handmade Jewelry</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">Ksh 1,200</span>
+                            <button class="add-to-cart bg-yellow-600 text-white px-3 py-1 rounded-md text-sm hover:bg-yellow-700 transition-colors" data-id="3" data-name="Maasai Beaded Necklace" data-price="1200" data-image="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1875&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="African Print Pants" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2">
+                            <button class="p-2 rounded-full bg-white shadow-md text-gray-700 hover:text-yellow-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900 mb-1">Ankara Palazzo Pants</h3>
+                        <p class="text-sm text-gray-500 mb-2">Women's Bottoms</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">Ksh 2,900</span>
+                            <button class="add-to-cart bg-yellow-600 text-white px-3 py-1 rounded-md text-sm hover:bg-yellow-700 transition-colors" data-id="4" data-name="Ankara Palazzo Pants" data-price="2900" data-image="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Special Offer -->
+    <div class="bg-yellow-600 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4 animate-bounce">Limited Time Offer!</h2>
+            <p class="text-xl text-white mb-6">Get 20% off on all orders over Ksh 3,000. Use code <span class="font-bold">AFRO20</span> at checkout.</p>
+            <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-yellow-600 bg-white hover:bg-gray-50">
+                Shop Now
+            </a>
+        </div>
+    </div>
+    
+    <!-- Testimonials -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">What Our Customers Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900">Wanjiku M.</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"I absolutely love my Kitenge dress from AfroChic! The quality is amazing, and I get compliments everywhere I go. Fast delivery too!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900">Kamau K.</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Kaftan shirts are so comfortable and stylish. Perfect for Nairobi's weather. Will definitely be ordering more colors!"</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900">Amina S.</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Maasai jewelry collection is stunning! I've bought several pieces as gifts for friends abroad, and they all loved them. Authentic Kenyan craftsmanship."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Newsletter -->
+    <div class="bg-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Stay Updated</h2>
+                <p class="text-gray-600 mb-6">Subscribe to our newsletter for the latest trends, exclusive offers, and more.</p>
+                <form class="max-w-md mx-auto">
+                    <div class="flex">
+                        <input type="email" placeholder="Your email address" class="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500">
+                        <button type="submit" class="bg-yellow-600 text-white px-6 py-2 rounded-r-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2">
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Women</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Men</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Accessories</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Sale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Track Order</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">About AfroChic</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Our Story</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Wholesale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                    <h4 class="text-sm font-medium mb-2">Payment Methods</h4>
+                    <div class="flex space-x-2">
+                        <img src="https://via.placeholder.com/40x25?text=M-Pesa" alt="M-Pesa" class="h-6">
+                        <img src="https://via.placeholder.com/40x25?text=Visa" alt="Visa" class="h-6">
+                        <img src="https://via.placeholder.com/40x25?text=Mastercard" alt="Mastercard" class="h-6">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800">
+                <div class="md:flex md:items-center md:justify-between">
+                    <div class="flex justify-center md:order-2 space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-gray-300">Privacy</a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">Terms</a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">Cookies</a>
+                    </div>
+                    <div class="mt-8 md:mt-0 md:order-1">
+                        <p class="text-center text-base text-gray-400">© 2023 AfroChic Kenya. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/254712345678" class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Afrobeauty Kenya | Authentic Kenyan Fashion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fafafa;
+        }
+        
+        .about-hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .pattern-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .kenya-map {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><path fill="%23F0F0F0" d="M0 0h800v800H0z"/><path fill="%23E71E28" d="M0 0h800v266.7H0z"/><path fill="%23000" d="M0 533.3h800V800H0z"/><path fill="%23000" d="M0 266.7h800v266.7H0z"/><path fill="%23FFF" d="M0 266.7h800v266.7H0z"/><path fill="%23000" d="M0 0l400 266.7L800 0v800l-400-266.7L0 800z"/><path fill="%23E71E28" d="M0 0l400 266.7L800 0v133.3L400 400 0 133.3z"/><path fill="%23E71E28" d="M0 666.7l400-266.7L800 666.7V800l-400-266.7L0 800z"/><path fill="%23FFF" d="M400 533.3a66.7 66.7 0 100-133.4 66.7 66.7 0 000 133.4z"/><path fill="%23E71E28" d="M400 500a33.3 33.3 0 100-66.7 33.3 33.3 0 000 66.7z"/></svg>');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="bg-yellow-600 text-white text-center py-2 px-4 text-sm">
+        <p>🔥 Free shipping on orders over Ksh 5,000! | 🇰🇪 Proudly Kenyan</p>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <img class="h-8 w-auto" src="https://via.placeholder.com/150x50?text=AfroChic" alt="AfroChic Kenya">
+                        <span class="ml-2 text-xl font-bold text-gray-800 hidden md:block">AfroChic Kenya</span>
+                    </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-gray-900 hover:text-yellow-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="about.html" class="text-yellow-600 px-3 py-2 text-sm font-medium">About</a>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="relative">
+                            <button id="search-btn" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none">
+                                <span class="sr-only">Search</span>
+                                <i class="fas fa-search h-6 w-6"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ml-4 flex-shrink-0 flex items-center">
+                        <button id="cart-btn" class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none relative">
+                            <span class="sr-only">Cart</span>
+                            <i class="fas fa-shopping-cart h-6 w-6"></i>
+                            <span id="cart-count" class="absolute -top-1 -right-1 bg-yellow-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        </button>
+                    </div>
+                    <div class="ml-4 flex-shrink-0 flex items-center">
+                        <button class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <span class="sr-only">Account</span>
+                            <i class="fas fa-user h-6 w-6"></i>
+                        </button>
+                    </div>
+                    <div class="ml-4 flex items-center md:hidden">
+                        <button id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                            <span class="sr-only">Open main menu</span>
+                            <i class="fas fa-bars h-6 w-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Home</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Women</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Men</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Accessories</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-yellow-600 hover:bg-gray-50">About</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <div class="about-hero relative">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Our Kenyan Story
+            </h1>
+            <p class="mt-6 max-w-lg mx-auto text-xl text-gray-100">
+                Celebrating African heritage through fashion, craftsmanship, and community
+            </p>
+        </div>
+    </div>
+    
+    <!-- Our Story -->
+    <div class="py-16 pattern-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">
+                        <span class="block">From Nairobi to the World</span>
+                        <span class="block text-yellow-600">Our Journey</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                        Founded in 2015 in the heart of Nairobi, AfroChic Kenya began as a small boutique with a big dream - to showcase the beauty of Kenyan craftsmanship to the world. What started as a passion project by founder Wanjiru Mwangi has grown into one of Kenya's most beloved fashion brands.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Our journey has been shaped by the vibrant colors, rich textures, and diverse cultures that make Kenya so special. Each piece in our collection tells a story of tradition meeting contemporary style.
+                    </p>
+                    <p class="text-gray-600">
+                        Today, we're proud to support over 200 local artisans and craftspeople across Kenya, from Maasai beadworkers in Kajiado to textile weavers in Kisumu.
+                    </p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Nairobi market" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Our Mission -->
+    <div class="py-16 bg-yellow-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+                    Our Core Values
+                </h2>
+                <div class="w-20 h-1 bg-yellow-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-md bg-yellow-100 text-yellow-600 mb-4">
+                        <i class="fas fa-hands-helping text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Empowering Artisans</h3>
+                    <p class="text-gray-600">
+                        We provide fair wages and sustainable income opportunities for Kenyan craftspeople, preserving traditional skills for future generations.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-md bg-yellow-100 text-yellow-600 mb-4">
+                        <i class="fas fa-leaf text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Sustainable Practices</h3>
+                    <p class="text-gray-600">
+                        From organic cotton to natural dyes, we prioritize eco-friendly materials and processes that honor our environment.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-md bg-yellow-100 text-yellow-600 mb-4">
+                        <i class="fas fa-globe-africa text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Cultural Celebration</h3>
+                    <p class="text-gray-600">
+                        We design with purpose, blending traditional African aesthetics with modern silhouettes for global appeal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Kenyan Heritage -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0 order-last">
+                    <div class="kenya-map bg-gray-100 rounded-xl shadow-lg overflow-hidden" style="height: 400px;"></div>
+                </div>
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">
+                        <span class="block">Rooted in</span>
+                        <span class="block text-yellow-600">Kenyan Heritage</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                        Kenya's diverse cultures inspire every collection we create. From the intricate beadwork of the Maasai to the bold Kitenge prints loved across East Africa, our designs pay homage to the artistry of Kenyan communities.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        We partner directly with cooperatives and artisan groups across the country, ensuring authentic craftsmanship while creating economic opportunities in rural areas.
+                    </p>
+                    <div class="mt-6">
+                        <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-yellow-600 hover:bg-yellow-700">
+                            Meet Our Artisans
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Our Team -->
+    <div class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+                    Meet The Team
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    The passionate individuals behind AfroChic Kenya who make it all possible
+                </p>
+                <div class="w-20 h-1 bg-yellow-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="team-member bg-white p-6 rounded-lg shadow-md text-center transition-transform duration-300">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Wanjiru Mwangi" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-yellow-100">
+                    <h3 class="text-lg font-medium text-gray-900 mb-1">Wanjiru Mwangi</h3>
+                    <p class="text-yellow-600 text-sm font-medium mb-2">Founder & CEO</p>
+                    <p class="text-gray-600 text-sm">
+                        With a background in fashion design from the University of Nairobi, Wanjiru's vision drives AfroChic's commitment to authentic Kenyan style.
+                    </p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-600">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-600">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="team-member bg-white p-6 rounded-lg shadow-md text-center transition-transform duration-300">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Kamau Otieno" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-yellow-100">
+                    <h3 class="text-lg font-medium text-gray-900 mb-1">Kamau Otieno</h3>
+                    <p class="text-yellow-600 text-sm font-medium mb-2">Head of Design</p>
+                    <p class="text-gray-600 text-sm">
+                        A third-generation tailor from Mombasa, Kamau brings unparalleled expertise in traditional Kenyan textiles and contemporary styling.
+                    </p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-600">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-600">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="team-member bg-white p-6 rounded-lg shadow-md text-center transition-transform duration-300">
+                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Amina Hassan" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-yellow-100">
+                    <h3 class="text-lg font-medium text-gray-900 mb-1">Amina Hassan</h3>
+                    <p class="text-yellow-600 text-sm font-medium mb-2">Artisan Coordinator</p>
+                    <p class="text-gray-600 text-sm">
+                        Born in Garissa, Amina connects us with talented craftspeople across Kenya, ensuring fair partnerships and quality craftsmanship.
+                    </p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-600">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-600">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Impact -->
+    <div class="py-16 bg-yellow-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold mb-4">
+                    Our Impact
+                </h2>
+                <p class="text-yellow-100 max-w-2xl mx-auto">
+                    Creating positive change through fashion and community development
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold mb-2">200+</div>
+                    <div class="text-yellow-100 font-medium">Artisans Empowered</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">15</div>
+                    <div class="text-yellow-100 font-medium">Counties Reached</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">3</div>
+                    <div class="text-yellow-100 font-medium">Training Centers</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">10,000+</div>
+                    <div class="text-yellow-100 font-medium">Happy Customers</div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-yellow-600 bg-white hover:bg-gray-50">
+                    Learn About Our Initiatives
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CTA -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+                Join Our Movement
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+                When you shop with AfroChic Kenya, you're supporting Kenyan artisans and preserving cultural heritage. Be part of our story.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-yellow-600 hover:bg-yellow-700">
+                    Shop Our Collections
+                </a>
+                <a href="#" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-yellow-700 bg-yellow-100 hover:bg-yellow-200">
+                    Contact Our Team
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Women</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Men</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Accessories</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Sale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Track Order</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">About AfroChic</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-300 hover:text-white">Our Story</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Wholesale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                    <h4 class="text-sm font-medium mb-2">Payment Methods</h4>
+                    <div class="flex space-x-2">
+                        <img src="https://via.placeholder.com/40x25?text=M-Pesa" alt="M-Pesa" class="h-6">
+                        <img src="https://via.placeholder.com/40x25?text=Visa" alt="Visa" class="h-6">
+                        <img src="https://via.placeholder.com/40x25?text=Mastercard" alt="Mastercard" class="h-6">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800">
+                <div class="md:flex md:items-center md:justify-between">
+                    <div class="flex justify-center md:order-2 space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-gray-300">Privacy</a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">Terms</a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">Cookies</a>
+                    </div>
+                    <div class="mt-8 md:mt-0 md:order-1">
+                        <p class="text-center text-base text-gray-400">&copy; 2023 AfroChic Kenya. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/254712345678" class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Cart functionality
+        const cartBtn = document.getElementById('cart-btn');
+        const cartCount = document.getElementById('cart-count');
+        
+        // This would be replaced with actual cart functionality from your main page
+        // Here just for demonstration
+        cartBtn.addEventListener('click', () => {
+            alert('Cart functionality would be connected to your main e-commerce page');
+        });
+    </script>
+</body>
+</html>
